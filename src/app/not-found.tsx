@@ -28,31 +28,10 @@ export default function NotFound() {
         <span>🍔</span>
         <span>🍩</span>
         <span>🧁</span>
-        <span>🥐</span>
-        <span>🍎</span>
-        <span>🍟</span>
-        <span>🍪</span>
-        <span>🧀</span>
-        <span>🍋</span>
-        <span>🍇</span>
-        <span>🍉</span>
+        
       </div>
 
-      {/* Navbar */}
-      <nav className={styles.navbar}>
-        <Link href="/" className={styles.logo}>
-          <div className={styles.logoIcon}>🍔</div>
-          <div>
-            <strong>Foodie</strong>
-            <small>FOOD EXPRESS</small>
-          </div>
-        </Link>
-
-        <Link href="/" className={styles.homeTop}>
-          <span>←</span>
-          Back Home
-        </Link>
-      </nav>
+    
 
       {/* Content */}
       <section className={styles.content}>
