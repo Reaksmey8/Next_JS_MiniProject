@@ -34,18 +34,18 @@ export default async function FoodDetailPage({
     : "No ratings yet";
 
   return (
-    <main className="min-h-screen bg-[#050505] px-4 py-12 text-white sm:px-8 lg:px-16">
+    <main className="relative min-h-screen px-4 py-12 sm:px-8 lg:px-16">
       <div className="mx-auto max-w-6xl">
         <Link
           href="/foods"
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white/75 transition hover:border-[#39ff14]/40 hover:text-[#39ff14]"
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-black/15 bg-black/5 px-4 py-2 text-sm font-medium text-[#1b1210] transition hover:border-[#e05307]/40 hover:text-[#e05307]"
         >
           ← Back to menu
         </Link>
 
-        <section className="overflow-hidden rounded-[28px] border border-white/5 bg-[#0d0d0d] p-4 shadow-[0_0_30px_rgba(0,0,0,0.4)] sm:p-6 lg:p-8">
+        <section className="overflow-hidden rounded-[28px] border border-black/10 bg-white/80 p-4 shadow-[0_0_30px_rgba(0,0,0,0.08)] backdrop-blur sm:p-6 lg:p-8">
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="relative overflow-hidden rounded-[24px] border border-white/10 bg-black">
+            <div className="relative overflow-hidden rounded-[24px] border border-black/10 bg-black">
               <img
                 src={food.image_url}
                 alt={food.name}
@@ -53,14 +53,14 @@ export default async function FoodDetailPage({
               />
 
               {food.is_trending && (
-                <span className="absolute left-4 top-4 rounded-full bg-[#39ff14] px-3 py-1 text-xs font-semibold text-black">
+                <span className="absolute left-4 top-4 rounded-full bg-[#e05307] px-3 py-1 text-xs font-semibold text-white">
                   Trending
                 </span>
               )}
 
               {!food.available && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/70">
-                  <span className="rounded-full border border-white/20 px-3 py-1 text-sm text-white">
+                <div className="absolute inset-0 flex items-center justify-center bg-black/60">
+                  <span className="rounded-full border border-white/30 bg-black/50 px-3 py-1 text-sm text-white backdrop-blur">
                     Unavailable
                   </span>
                 </div>
@@ -68,25 +68,25 @@ export default async function FoodDetailPage({
             </div>
 
             <div className="flex flex-col justify-center">
-              <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-[#39ff14]">
+              <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-[#e05307]">
                 Featured dish
               </p>
 
               <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <h1 className="text-3xl font-bold sm:text-5xl">{food.name}</h1>
-                <span className="text-3xl font-bold text-[#ff1493]">
+                <h1 className="text-3xl font-bold text-[#1b1210] sm:text-5xl">{food.name}</h1>
+                <span className="text-3xl font-bold text-[#e05307]">
                   ${food.price.toFixed(2)}
                 </span>
               </div>
 
               <div className="mb-5 flex flex-wrap gap-2">
                 {food.category && (
-                  <span className="rounded-full border border-[#39ff14]/30 bg-[#39ff14]/5 px-3 py-1 text-xs font-medium text-[#39ff14]">
+                  <span className="rounded-full border border-[#e05307]/30 bg-[#e05307]/5 px-3 py-1 text-xs font-medium text-[#e05307]">
                     {food.category}
                   </span>
                 )}
                 {food.cuisine && (
-                  <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-white/75">
+                  <span className="rounded-full border border-black/15 bg-black/5 px-3 py-1 text-xs font-medium text-neutral-600">
                     {food.cuisine}
                   </span>
                 )}
@@ -94,7 +94,7 @@ export default async function FoodDetailPage({
                   food.meal_types.map((mealType) => (
                     <span
                       key={mealType}
-                      className="rounded-full border border-[#ff1493]/20 bg-[#ff1493]/5 px-3 py-1 text-xs font-medium text-[#ff1493]"
+                      className="rounded-full border border-[#e05307]/20 bg-[#e05307]/5 px-3 py-1 text-xs font-medium text-[#e05307]"
                     >
                       {mealType}
                     </span>
@@ -102,7 +102,7 @@ export default async function FoodDetailPage({
                 ) : null}
               </div>
 
-              <p className="max-w-xl text-base leading-7 text-white/70">
+              <p className="max-w-xl text-base leading-7 text-neutral-600">
                 {food.description}
               </p>
 
@@ -110,12 +110,12 @@ export default async function FoodDetailPage({
                 {nutritionItems.map((item) => (
                   <div
                     key={item.label}
-                    className="rounded-2xl border border-white/10 bg-[#121212] p-3"
+                    className="rounded-2xl border border-black/10 bg-black/5 p-3"
                   >
-                    <p className="text-xs uppercase tracking-[0.14em] text-white/45">
+                    <p className="text-xs uppercase tracking-[0.14em] text-neutral-500">
                       {item.label}
                     </p>
-                    <p className="mt-2 text-lg font-semibold text-white">
+                    <p className="mt-2 text-lg font-semibold text-[#1b1210]">
                       {item.value}
                     </p>
                   </div>
@@ -123,17 +123,17 @@ export default async function FoodDetailPage({
               </div>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <span className="rounded-full border border-[#39ff14]/25 bg-[#39ff14]/10 px-3 py-1.5 text-sm text-[#39ff14]">
+                <span className="rounded-full border border-[#e05307]/25 bg-[#e05307]/10 px-3 py-1.5 text-sm text-[#c34800]">
                   ⭐ {ratingText}
                 </span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-white/70">
+                <span className="rounded-full border border-black/10 bg-black/5 px-3 py-1.5 text-sm text-neutral-600">
                   {food.rating_count} reviews
                 </span>
                 <span
                   className={`rounded-full px-3 py-1.5 text-sm ${
                     food.available
-                      ? "border border-[#39ff14]/25 bg-[#39ff14]/10 text-[#39ff14]"
-                      : "border border-white/10 bg-white/5 text-white/60"
+                      ? "border border-[#e05307]/25 bg-[#e05307]/10 text-[#e05307]"
+                      : "border border-black/10 bg-black/5 text-neutral-500"
                   }`}
                 >
                   {food.available ? "Available now" : "Currently unavailable"}
@@ -144,13 +144,13 @@ export default async function FoodDetailPage({
                 <button
                   type="button"
                   disabled={!food.available}
-                  className="rounded-full bg-[#ff1493] px-6 py-3 text-sm font-semibold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="rounded-full bg-[#e05307] px-6 py-3 text-sm font-semibold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   Add to cart
                 </button>
                 <Link
                   href="/foods"
-                  className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-[#39ff14]/40 hover:text-[#39ff14]"
+                  className="rounded-full border border-black/15 bg-black/5 px-6 py-3 text-sm font-semibold text-[#1b1210] transition hover:border-[#e05307]/40 hover:text-[#e05307]"
                 >
                   Browse more
                 </Link>
@@ -158,15 +158,15 @@ export default async function FoodDetailPage({
             </div>
           </div>
 
-          <div className="mt-10 grid gap-6 border-t border-white/10 pt-8 lg:grid-cols-2">
+          <div className="mt-10 grid gap-6 border-t border-black/10 pt-8 lg:grid-cols-2">
             <div>
-              <h2 className="mb-4 text-xl font-semibold text-white">Ingredients</h2>
+              <h2 className="mb-4 text-xl font-semibold text-[#1b1210]">Ingredients</h2>
               <div className="flex flex-wrap gap-2">
                 {(food.ingredients?.length ? food.ingredients : ["Fresh ingredients"]).map(
                   (ingredient) => (
                     <span
                       key={ingredient}
-                      className="rounded-full border border-white/10 bg-[#121212] px-3 py-1.5 text-sm text-white/70"
+                      className="rounded-full border border-black/10 bg-black/5 px-3 py-1.5 text-sm text-neutral-600"
                     >
                       {ingredient}
                     </span>
@@ -176,19 +176,19 @@ export default async function FoodDetailPage({
             </div>
 
             <div>
-              <h2 className="mb-4 text-xl font-semibold text-white">Quick details</h2>
-              <ul className="space-y-3 text-sm text-white/70">
-                <li className="flex items-center justify-between border-b border-white/10 pb-2">
+              <h2 className="mb-4 text-xl font-semibold text-[#1b1210]">Quick details</h2>
+              <ul className="space-y-3 text-sm text-neutral-600">
+                <li className="flex items-center justify-between border-b border-black/10 pb-2">
                   <span>Category</span>
-                  <span className="font-medium text-white">{food.category || "—"}</span>
+                  <span className="font-medium text-[#1b1210]">{food.category || "—"}</span>
                 </li>
-                <li className="flex items-center justify-between border-b border-white/10 pb-2">
+                <li className="flex items-center justify-between border-b border-black/10 pb-2">
                   <span>Cuisine</span>
-                  <span className="font-medium text-white">{food.cuisine || "—"}</span>
+                  <span className="font-medium text-[#1b1210]">{food.cuisine || "—"}</span>
                 </li>
                 <li className="flex items-center justify-between">
                   <span>Drink type</span>
-                  <span className="font-medium text-white">
+                  <span className="font-medium text-[#1b1210]">
                     {food.drink_type || "Not available"}
                   </span>
                 </li>

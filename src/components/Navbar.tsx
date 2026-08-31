@@ -1,21 +1,27 @@
+"use client";
+
 import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <header className="border-b border-white/10 bg-[#050505] text-white">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-8 lg:px-16">
-        <Link href="/" className="text-lg font-bold text-[#39ff14]">
-          FlavorNest
+    <header className="relative z-50 sticky top-0 w-full border-b border-black/10 bg-white/80 px-6 py-4 flex items-center justify-between backdrop-blur-md">
+      <Link
+        href="/"
+        className="text-2xl font-extrabold text-[#e05307] flex items-center gap-2"
+      >
+        <span>🇰🇭</span> Angkor Thmey
+      </Link>
+      <div className="flex gap-8 text-sm font-bold">
+        <Link href="/" className="text-[#e05307]">
+          Home
         </Link>
-        <div className="flex items-center gap-4 text-sm text-white/70">
-          <Link href="/foods" className="transition hover:text-white">
-            Menu
-          </Link>
-          <Link href="/about" className="transition hover:text-white">
-            About
-          </Link>
-        </div>
-      </nav>
+        <Link href="/foods" className="text-slate-700 hover:text-[#e05307] transition">
+          Foods
+        </Link>
+        <Link href="/about" className="text-slate-700 hover:text-[#e05307] transition">
+          About Us
+        </Link>
+      </div>
     </header>
   );
 }

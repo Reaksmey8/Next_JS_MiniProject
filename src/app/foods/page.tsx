@@ -16,7 +16,7 @@ export default async function FoodsPage({
     foods = await getFoodItems();
   } catch (error) {
     return (
-      <main className="min-h-screen bg-[#050505]">
+      <main className="min-h-screen">
         <FoodListError />
       </main>
     );
@@ -32,18 +32,18 @@ export default async function FoodsPage({
   const currentFoods = foods.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
   return (
-    <main className="min-h-screen bg-[#050505] px-4 py-12 text-white sm:px-8 lg:px-16">
+    <main className="relative min-h-screen px-4 py-12 sm:px-8 lg:px-16">
       <header className="mx-auto mb-12 max-w-3xl text-center">
-        <p className="mb-2 text-sm font-medium text-[#39ff14]">Our Menu</p>
-        <h1 className="text-3xl font-bold sm:text-4xl">
+        <p className="mb-2 text-sm font-medium text-[#e05307]">Our Menu</p>
+        <h1 className="text-3xl font-bold text-[#1b1210] sm:text-4xl">
           Fresh &amp; Delicious Food
         </h1>
       </header>
 
       {foods.length === 0 ? (
         <div className="flex min-h-[40vh] flex-col items-center justify-center gap-2 text-center">
-          <p className="text-lg font-semibold">No foods available</p>
-          <p className="text-sm text-white/60">
+          <p className="text-lg font-semibold text-[#1b1210]">No foods available</p>
+          <p className="text-sm text-neutral-500">
             We couldn&apos;t find any food items.
           </p>
         </div>
@@ -61,20 +61,20 @@ export default async function FoodsPage({
             <div className="mt-12 flex justify-center items-center gap-4">
               <Link
                 href={`/foods?page=${currentPage - 1}`}
-                className={`px-4 py-2 rounded-lg border border-white/20 bg-white/5 text-sm transition hover:bg-white/10 ${
+                className={`px-4 py-2 rounded-lg border border-black/15 bg-black/5 text-sm text-[#1b1210] transition hover:bg-black/10 ${
                   currentPage <= 1 ? "pointer-events-none opacity-40" : ""
                 }`}
               >
                 Previous
               </Link>
 
-              <span className="text-sm font-medium text-white/70">
+              <span className="text-sm font-medium text-neutral-600">
                 Page {currentPage} of {totalPages}
               </span>
 
               <Link
                 href={`/foods?page=${currentPage + 1}`}
-                className={`px-4 py-2 rounded-lg border border-white/20 bg-white/5 text-sm transition hover:bg-white/10 ${
+                className={`px-4 py-2 rounded-lg border border-black/15 bg-black/5 text-sm text-[#1b1210] transition hover:bg-black/10 ${
                   currentPage >= totalPages ? "pointer-events-none opacity-40" : ""
                 }`}
               >

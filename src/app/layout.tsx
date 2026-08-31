@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/footer";
+import AnimatedBackground from "@/components/AnimatedBackground";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,15 +22,20 @@ export const metadata: Metadata = {
     "Modern food and dining experiences built around fresh ingredients and warm hospitality.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#050505] text-white">
+      <body className="min-h-full flex flex-col bg-[#ffffff] text-[#1b1210]">
+        <AnimatedBackground />
         <Navbar />
-        <div className="flex min-h-screen flex-col">{children}</div>
+        <div className="relative flex min-h-screen flex-col">{children}</div>
         <Footer />
       </body>
     </html>

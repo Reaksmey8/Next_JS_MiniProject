@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#050505] py-6 text-center text-sm text-white/60">
-      © 2026 FlavorNest. Fresh meals, every day.
+    <footer className="relative z-50 border-t border-black/10 bg-white/80 py-6 text-center text-sm text-neutral-500 backdrop-blur-md">
+      © 2026 Angkor Thmey. Fresh meals, every day.
     </footer>
   );
 }
