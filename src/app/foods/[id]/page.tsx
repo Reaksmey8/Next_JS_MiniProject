@@ -90,16 +90,16 @@ export default async function FoodDetailPage({
                     {food.cuisine}
                   </span>
                 )}
-                {food.meal_types?.length
-                  ? food.meal_types.map((mealType) => (
-                      <span
-                        key={mealType}
-                        className="rounded-full border border-[#ff1493]/20 bg-[#ff1493]/5 px-3 py-1 text-xs font-medium text-[#ff1493]"
-                      >
-                        {mealType}
-                      </span>
-                    ))
-                  : null}
+                {food.meal_types?.length ? (
+                  food.meal_types.map((mealType) => (
+                    <span
+                      key={mealType}
+                      className="rounded-full border border-[#ff1493]/20 bg-[#ff1493]/5 px-3 py-1 text-xs font-medium text-[#ff1493]"
+                    >
+                      {mealType}
+                    </span>
+                  ))
+                ) : null}
               </div>
 
               <p className="max-w-xl text-base leading-7 text-white/70">
@@ -160,40 +160,31 @@ export default async function FoodDetailPage({
 
           <div className="mt-10 grid gap-6 border-t border-white/10 pt-8 lg:grid-cols-2">
             <div>
-              <h2 className="mb-4 text-xl font-semibold text-white">
-                Ingredients
-              </h2>
+              <h2 className="mb-4 text-xl font-semibold text-white">Ingredients</h2>
               <div className="flex flex-wrap gap-2">
-                {(food.ingredients?.length
-                  ? food.ingredients
-                  : ["Fresh ingredients"]
-                ).map((ingredient) => (
-                  <span
-                    key={ingredient}
-                    className="rounded-full border border-white/10 bg-[#121212] px-3 py-1.5 text-sm text-white/70"
-                  >
-                    {ingredient}
-                  </span>
-                ))}
+                {(food.ingredients?.length ? food.ingredients : ["Fresh ingredients"]).map(
+                  (ingredient) => (
+                    <span
+                      key={ingredient}
+                      className="rounded-full border border-white/10 bg-[#121212] px-3 py-1.5 text-sm text-white/70"
+                    >
+                      {ingredient}
+                    </span>
+                  )
+                )}
               </div>
             </div>
 
             <div>
-              <h2 className="mb-4 text-xl font-semibold text-white">
-                Quick details
-              </h2>
+              <h2 className="mb-4 text-xl font-semibold text-white">Quick details</h2>
               <ul className="space-y-3 text-sm text-white/70">
                 <li className="flex items-center justify-between border-b border-white/10 pb-2">
                   <span>Category</span>
-                  <span className="font-medium text-white">
-                    {food.category || "—"}
-                  </span>
+                  <span className="font-medium text-white">{food.category || "—"}</span>
                 </li>
                 <li className="flex items-center justify-between border-b border-white/10 pb-2">
                   <span>Cuisine</span>
-                  <span className="font-medium text-white">
-                    {food.cuisine || "—"}
-                  </span>
+                  <span className="font-medium text-white">{food.cuisine || "—"}</span>
                 </li>
                 <li className="flex items-center justify-between">
                   <span>Drink type</span>
