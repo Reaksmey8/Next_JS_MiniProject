@@ -20,6 +20,13 @@ export interface FoodItem {
   rating_count: number;
   is_trending: boolean;
   available: boolean;
+  calories?: number;
+  protein?: number;
+  carbs?: number;
+  fat?: number;
+  ingredients?: string[];
+  meal_types?: string[];
+  drink_type?: string | null;
 }
 
 /**
@@ -43,4 +50,26 @@ export async function getFoodItems(): Promise<FoodItem[]> {
   }
 
   return data as FoodItem[];
+}
+
+/**
+ * Fetches a single food item by ID.
+ * Throws an Error if the request fails, so callers can render a not-found state.
+ */
+export async function getFoodItemById(id: string): Promise<FoodItem> {
+  const response = await fetch(`${API_BASE_URL}/food-items/${id}`, {
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch food item ${id}: ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  if (!data || typeof data !== "object") {
+    throw new Error("Unexpected response shape from food API");
+  }
+
+  return data as FoodItem;
 }
