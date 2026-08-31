@@ -75,7 +75,9 @@ export default async function FoodsPage({
               <Link
                 href={`/foods?page=${currentPage + 1}`}
                 className={`px-4 py-2 rounded-lg border border-white/20 bg-white/5 text-sm transition hover:bg-white/10 ${
-                  currentPage >= totalPages ? "pointer-events-none opacity-40" : ""
+                  currentPage >= totalPages
+                    ? "pointer-events-none opacity-40"
+                    : ""
                 }`}
               >
                 Next
